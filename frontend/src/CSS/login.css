@@ -1,0 +1,26 @@
+.loginContainer{
+    height: 625px;
+}
+.loginForm{
+    border:2px solid grey;
+    width: 40%;
+    height: 400px;
+    margin: 100px auto;
+    color: white;
+    background-color: #A9A9A9;
+    opacity: 0.9;
+    padding: 30px;
+    font-weight: bold;
+}
+.label1{
+    margin-left: -70%;
+    font-size: 18px;
+}
+.label2{
+    margin-left: -75%;
+    font-size: 18px;
+}
+.loginBackground{
+    background: url(https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80) no-repeat center center/cover;
+    background-size: cover;
+}

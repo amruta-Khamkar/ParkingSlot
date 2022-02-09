@@ -1,0 +1,37 @@
+/* navbar  */
+.parking {
+    font-size: 35px;
+}
+
+.logo {
+    margin-left: -110px;
+}
+
+.drive {
+    font-size: 25px;
+}
+
+.text {
+    position: absolute;
+    right: 15%;
+    font-size: 18px;
+}
+
+.signBtn {
+    position: absolute;
+    right: 5%;
+    bottom: 12px;
+    font-size: 18px;
+}
+
+/* dashboard */
+.mainImage {
+    background: url(https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500) no-repeat center center/cover;
+    height: 550px;
+    width: 100%;
+    /* opacity: 0.7; */
+    /* transition:width 1s  ease-in 5s */
+}
+.dashboardContainer{
+    border: 2px solid grey;
+}
