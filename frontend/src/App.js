@@ -6,6 +6,7 @@ import Dashboard from './Components/Dashboard';
 import Book from './Components/Book';
 import Payment from './Components/Payment';
 import Profile from './Components/Profile';
+import PageNotFound from './Components/PageNotFound';
 const Register=lazy(()=>import('./Components/Register'))
 const Login=lazy(()=>import('./Components/Login'))
 
@@ -27,6 +28,7 @@ function App() {
         <Route path='/book' element={<Book/>}></Route>
         <Route path='/payment' element={<Payment/>}></Route>
         <Route path='/profile' element={<Profile/>}></Route>
+        <Route path='*' element={<PageNotFound/>}></Route>
       </Routes>
       </Suspense>
     </div>
