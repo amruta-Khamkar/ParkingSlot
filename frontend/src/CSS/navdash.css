@@ -35,3 +35,63 @@
 .dashboardContainer{
     border: 2px solid grey;
 }
+.detailsCard{
+    width: 33rem;
+}
+.dashboardCard{
+    width: 25rem;
+}
+@media(max-width:760px)  {
+    .detailsCard{
+     width: 25rem;
+    }
+    .detailsCard h3{
+        font-size: 21px;
+    }
+  }
+@media(max-width:450px)  {
+    .detailsCard{
+     width: 20rem;
+    }
+    .detailsCard h3{
+        font-size: 18px;
+    }
+  }
+@media(max-width:450px)  {
+    .dashboardCard{
+     width: 20rem;
+    }
+  }
+@media(max-width:400px)  {
+    .dashboardCard{
+     width: 15rem;
+    }
+  }
+@media(max-width:388px)  {
+    .dashboardCard h1{
+        font-size: 30px;
+    }
+    .dashboardCard h5{
+        font-size: 20px;
+    }
+    .detailsCard{
+        width: 16rem;
+       }
+    .detailsCard h3{
+        font-size: 14px;
+       }
+  }
+  @media(max-width:280px)  {
+    .detailsCard{
+        width: 13rem;
+       }
+    .detailsCard h3{
+        font-size: 12px;
+       }
+  }
+  @media(max-width:990px)  {
+    .signBtn {
+        position: static;
+        margin-top: 30px;
+    }
+  }

@@ -21,7 +21,7 @@ function PageNotFound() {
 		
 		<p>the page you are looking for not avaible!</p>
 		
-		<Link to="/" class="link_404">Go to Home</Link>
+		<Link to="/dashboard" class="link_404">Go to Home</Link>
 	</div>
 		</div>
 		</div>

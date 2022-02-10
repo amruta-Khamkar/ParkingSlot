@@ -93,8 +93,8 @@ function Payment() {
     return (<>
         <Navbars />
         <Row style={{ width: "100%" }}>
-            <h1>Payment</h1>
             <Col >
+            <h1>Payment</h1>
                 <label for="cname">Name on Card</label>
                 <input type="text" className="inputs" id="cname" name="cardName" onChange={handler} placeholder="John More Doe" />
                 <span style={{ color: "red" }}>{errors.cardName}</span><br />
@@ -117,7 +117,7 @@ function Payment() {
                     <option value='12'>December</option>
                 </Form.Select>
 
-                <div class="row">
+              
                     <div className="col-50 mt-2">
                         <label for="cname">Expiry Year</label>
                         <Form.Select aria-label="Default select example">
@@ -127,7 +127,6 @@ function Payment() {
                             <option value='25'>2025</option>
                             <option value='26'>2026</option>
                         </Form.Select>
-                    </div>
                     <div class="col-50">
                         <label for="cvv">CVV</label>
                         <input type="number" className="inputs" id="cvv" name="cvv" onChange={handler} placeholder="352" />
@@ -153,8 +152,8 @@ function Payment() {
                     }
                 </div>
             </Col>
-            <Button variant="success" className="fw-bold mb-3" onClick={Checkout}>Pay Now</Button>
         </Row>
+            <Button variant="success" className="fw-bold mb-3" onClick={Checkout}>Pay Now</Button>
         <Footer/>
     </>
     )

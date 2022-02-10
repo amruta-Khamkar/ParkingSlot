@@ -4,7 +4,7 @@ import { Navigate, useNavigate,Link } from 'react-router-dom';
 import sweet from 'sweetalert2';
 import {addUser,bookSlot} from '../API/apiCalls'
 import '../CSS/register.css'
-const regForName = RegExp(/^[A-Za-z]{3,10}$/);
+const regForName = RegExp(/^[A-Za-z]{2,10}$/);
 const regForUName = RegExp(/^[A-Za-z]{2,12}$/);
 const regForEmail = RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
 const regForPass = RegExp(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/);
@@ -161,7 +161,7 @@ function Register() {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                         <Form.Control type={passwords} placeholder=" Confrim Password" onChange={handleRegisterData} name="confirmPass" required />
                     </Form.Group>
-                    <Form.Label className='text-dark label2'>Profile Photo :</Form.Label>
+                    <Form.Label className='text-dark'>Profile Photo :</Form.Label>
                     <Form.Group className="mb-3" >
                         <Form.Control type="file" formEncType='multipart/form-data' name="image" id="image"onChange={handlePhoto}/>
                        

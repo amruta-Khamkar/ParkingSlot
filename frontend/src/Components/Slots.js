@@ -47,9 +47,9 @@ const cancelSlot=()=>{
   return <div>
     <h1>Slots</h1>
     <Row style={{width:"50%"}} className="mx-auto mb-3 mt-3">
-    <Col className='slots mx-3' style={{backgroundColor:"#22DD22"}}>Available Slots</Col>
-      <Col className='slots mx-3'  style={{backgroundColor:"#FF3131"}}>Occupied Slots</Col>
-      <Col className='slots mx-3' style={{backgroundColor:"yellow"}}>Selected Slot</Col>
+    <Col className='slots mx-3 my-3' style={{backgroundColor:"#22DD22"}}>Available Slots</Col>
+      <Col className='slots mx-3 my-3'  style={{backgroundColor:"#FF3131"}}>Occupied Slots</Col>
+      <Col className='slots mx-3 my-3' style={{backgroundColor:"yellow"}}>Selected Slot</Col>
       { btn == 1 && 
         <Row>
           <Col>
@@ -60,11 +60,11 @@ const cancelSlot=()=>{
         </Row>
       }
     </Row>
-    <Container fluid>
-      <Row className="parkingImg my-3" xs={6}>
+    <Container fluid className='slotsContainer'>
+      <Row className="parkingImg my-3"  lg={6} xs={2} md={3} sm={2} >
         {sessionStorage.getItem("slots") != undefined &&
           slotData.map((e, i) =>
-            <Col key={i} className="slots mx-3 mb-3" onClick={() => (selectSlot(i))} style={{ backgroundColor: slotData[i].color }}>Slot {i + 1}</Col>
+            <Col key={i} className="slots mx-3 mb-3" onClick={() => (selectSlot(i))} style={{ backgroundColor: slotData[i].color}}>Slot {i + 1}</Col>
           )}
       </Row>
      

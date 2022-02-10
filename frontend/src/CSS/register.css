@@ -1,17 +1,35 @@
-.registerContainer{
+.registerContainer {
     height: 625px;
 }
-.registerForm{
-    border:2px solid grey;
+
+.registerForm {
+    border: 2px solid grey;
     width: 50%;
-    margin:  auto;
+    margin: auto;
     color: white;
-    background-color: rgb(134, 134, 134);
+    background-color: #A9A9A9;
     opacity: 0.86;
     padding: 10px;
     font-weight: bold;
 }
-.registerBackground{
+
+.registerBackground {
     background: url(https://images.unsplash.com/photo-1566009002888-a8e15b0e1650?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80) no-repeat center center/cover;
     background-size: cover;
 }
+
+@media(max-width:500px)  {
+    .registerForm{
+     width: 300px;
+    }
+  }
+@media(max-width:1000px)  {
+    .registerForm{
+     width: 80%;
+    }
+  }
+@media(max-width:450px)  {
+    .registerForm{
+     width: 100%;
+    }
+  }
