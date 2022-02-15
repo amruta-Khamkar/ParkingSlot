@@ -17,6 +17,7 @@ function Navbars() {
   
   const signOutButton=()=>{
     localStorage.clear()
+    sessionStorage.clear()
     navigate('/')
   }
   return <div>
@@ -29,7 +30,9 @@ function Navbars() {
     <Navbar.Collapse id="basic-navbar-nav">
       {
         data!=undefined &&
-        <Nav.Link className='text text-white profileText'> Signed in as: <Link to="/profile"className=" text-warning ">{data.firstName} {data.lastName}</Link></Nav.Link> 
+        <Nav.Link className='text text-white profileText'> Signed in as: <Link to="/profile"className=" text-warning ">{data.firstName} {data.lastName}</Link>
+        <img src={data.photo} width="50" height="50" className=' mx-2 rounded-circle'/>
+        </Nav.Link> 
       }
       <Nav.Link><Button variant="danger"  className="signBtn" onClick={signOutButton}>Sign Out</Button></Nav.Link>
       </Navbar.Collapse>

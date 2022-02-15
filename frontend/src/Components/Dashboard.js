@@ -109,10 +109,10 @@ function Dashboard() {
                 :
                 <h3>Total no of bookings till now is 0</h3>
             }
-            {
+            {/* {
               future != undefined &&
               <h3>Total no of bookings  in future is {future.length}</h3>
-            }
+            } */}
             {
               history != undefined &&
               <h3>Total no of bookings in past is {history.length}</h3>

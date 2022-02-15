@@ -24,50 +24,60 @@ function Slots(props) {
   const selectSlot = (i) => {
     setSlotNumber(i + 1)
     dispatch({ type: "SelectSlot", payload: "yellow", index: i })
+
     let slots = JSON.parse(sessionStorage.getItem("slots"));
     let count = 0;
+
     slots.forEach(function (arrayItem, i) {
       if (slots[i].color == "yellow") {
         count++
+        console.log(count)
       }
     });
-    if (count >= 1) {
+    if(slots[i].color=="#FF3131"){
+      setBtn(0)
+      setTimeout(() => {
+        dispatch({ type: "EmptySlot", payload: "#22DD22", index: i })
+      }, 100);
+       }
+    else if (count >= 1) {
       setBtn(1)
       setTimeout(() => {
         dispatch({ type: "EmptySlot", payload: "#22DD22", index: i })
       }, 100);
     }
     
+
   }
 
-const cancelSlot=()=>{
-  setBtn(0);
-  dispatch({type:"cancelSlot",index:slotNumber-1})
-}
+  const cancelSlot = () => {
+    setBtn(0);
+    dispatch({ type: "cancelSlot", index: slotNumber - 1 })
+  }
   return <div>
     <h1>Slots</h1>
-    <Row style={{width:"50%"}} className="mx-auto mb-3 mt-3">
-    <Col className='slots mx-3 my-3' style={{backgroundColor:"#22DD22"}}>Available Slots</Col>
-      <Col className='slots mx-3 my-3'  style={{backgroundColor:"#FF3131"}}>Occupied Slots</Col>
-      <Col className='slots mx-3 my-3' style={{backgroundColor:"yellow"}}>Selected Slot</Col>
-      { btn == 1 && 
+    <Row style={{ width: "50%" }} className="mx-auto mb-3 mt-3">
+      <Col className='slots mx-3 my-3' style={{ backgroundColor: "#22DD22" }}>Available Slots</Col>
+      <Col className='slots mx-3 my-3' style={{ backgroundColor: "#FF3131" }}>Occupied Slots</Col>
+      <Col className='slots mx-3 my-3' style={{ backgroundColor: "yellow" }}>Selected Slot</Col>
+      {btn == 1 &&
         <Row>
           <Col>
-       <Button variant="info"className="mt-3 py-3" ><Link to="/payment" className='text-decoration-none text-black h4' state={{ location: props.location, date: props.date, fromTime: props.fromTime, toTime: props.toTime, vehicle: props.vehicle, id: id, bookings: slotNumber }}>Confirm the slot</Link></Button>
-        </Col>
+            <Button variant="info" className="mt-3 py-3" ><Link to="/payment" className='text-decoration-none text-black h4' state={{ location: props.location, date: props.date, fromTime: props.fromTime, toTime: props.toTime, vehicle: props.vehicle, id: id, bookings: slotNumber }}>Confirm the slot</Link></Button>
+          </Col>
 
-        <Col><Button variant="info" className="mt-3 py-3 fw-bold " style={{fontSize:"21px"}} onClick={cancelSlot}>Cancel Selected Slot</Button></Col>
+          <Col><Button variant="info" className="mt-3 py-3 fw-bold " style={{ fontSize: "21px" }} onClick={cancelSlot}>Cancel Selected Slot</Button></Col>
         </Row>
       }
     </Row>
     <Container fluid className='slotsContainer'>
-      <Row className="parkingImg my-3"  lg={6} xs={2} md={3} sm={2} >
+      <Row className="parkingImg my-3" lg={6} xs={2} md={3} sm={2} >
         {sessionStorage.getItem("slots") != undefined &&
           slotData.map((e, i) =>
-            <Col key={i} className="slots mx-3 mb-3" onClick={() => (selectSlot(i))} style={{ backgroundColor: slotData[i].color}}>Slot {i + 1}</Col>
+            <Col key={i} className="slots mx-3 mb-3" onClick={() => (selectSlot(i))} style={{ backgroundColor: slotData[i].color }}>Slot {i + 1}</Col>
           )}
       </Row>
-     
+
 
     </Container>
   </div>;

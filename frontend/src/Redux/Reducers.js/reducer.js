@@ -8,7 +8,7 @@ export const changeColor = (state = [{ color: "#22DD22" }, { color: "#22DD22" },
       if (slots[action.index].color != "#FF3131") {
         slots[action.index].color = action.payload
       }
-      console.log(slots)
+      // console.log(slots)
       sessionStorage.setItem("slots", JSON.stringify(slots))
       return slots
     }

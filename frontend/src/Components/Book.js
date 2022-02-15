@@ -30,7 +30,22 @@ function Book() {
         sessionStorage.setItem("slots", JSON.stringify(color))
         setSlotData(color)
     }, [color]);
-
+    useEffect(() => {
+        var dtToday = new Date();
+    
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+        
+        var maxDate = year + '-' + month + '-' + day;
+        //alert(maxDate);
+        document.getElementById("datepick").setAttribute("min",maxDate)
+        document.getElementById("datepick").setAttribute("max",maxDate)
+    }, [])
     const [flag, setFlag] = useState(0)
     console.log(errors)
     const dispatch = useDispatch()
@@ -166,6 +181,7 @@ function Book() {
         let arr = []
         let count=0;
         let countDate=0;
+        let countLoc=0;
         if (errors.date == '' && errors.fromTime == '' && errors.toTime == '' && bookingData.location != '' && bookingData.vehicle != '') {
             setFlag(1)
            
@@ -174,6 +190,7 @@ function Book() {
                     let slots = JSON.parse(sessionStorage.getItem("slots"))
                     for (let i = 0; i < res.data.length; i++) {
                         if (res.data[i].locationName == bookingData.location) {
+                            countLoc++;
                             for (let j = 0; j < res.data[i].bookedSlots.length; j++) {
                                 let dbDate = new Date(res.data[i].bookedSlots[j].date);
                                 let myDate = new Date(bookingData.date);
@@ -214,6 +231,11 @@ function Book() {
                                 }
 
                             }
+                        }
+                        else if(countLoc==0){
+                            slots.forEach(function (arrayItem, index) {
+                                slots[index].color = "#22DD22"
+                            })
                         }
                     }
                     console.log(slots)
@@ -261,7 +283,7 @@ function Book() {
 
                     <Form.Group className="mb-2" >
                         <Form.Label className='text-dark mt-2 label1'>Booking Date:</Form.Label>
-                        <Form.Control type="date" name="date" onChange={bookData} />
+                        <Form.Control type="date" name="date" onChange={bookData} id="datepick" />
                     </Form.Group>
                     {errors.date.length > 0 &&
                         <span style={{ color: "#FF3131" }}>{errors.date}</span>}
@@ -290,7 +312,7 @@ function Book() {
                             <option value="20:00">20:00</option>
                             <option value="21:00">21:00</option>
                             <option value="22:00">22:00</option>
-                            <option value="22:00">23:00</option>
+                            <option value="23:00">23:00</option>
                         </Form.Select>
                     </Form.Group>
                     {errors.fromTime.length > 0 &&
